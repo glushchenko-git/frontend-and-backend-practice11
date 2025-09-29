@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Наш сайт</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav {
+            background-color: #444;
+            padding: 0.5rem;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav a:hover {
+            background-color: #555;
+        }
+        
+        .main-content {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .contact-value {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .call-button {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .call-button:hover {
+            background-color: #0056b3;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Хэдер -->
+    <header class="header">
+        <h1>Наш сайт</h1>
+    </header>
+
+    <!-- Меню навигации -->
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="goods.html">Товары</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="contact-info">
+            <h2>Наши контакты</h2>
+            
+            <div class="contact-item">
+                <span class="contact-label">Электронная почта:</span>
+                <span class="contact-value">info@nashsait.ru</span>
+            </div>
+            
+            <div class="contact-item">
+                <span class="contact-label">Адрес:</span>
+                <span class="contact-value">
+                    г. Москва, ул. Бочаровская, д. 52<br>
+                    Бизнес-центр "Пример", офис 2
+                </span>
+            </div>
+            
+            <div class="contact-item">
+                <span class="contact-label">Телефон:</span>
+                <span class="contact-value">+7 (915) 444 - 44 - 44</span>
+            </div>
+            
+            <a href="tel:+74951234567" class="call-button">Позвоните нам</a>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <p>&copy; 2025 Наш сайт. Все права защищены.</p>
+    </footer>
+</body>
+</html>

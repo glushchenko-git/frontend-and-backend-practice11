@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости - Наш сайт</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav {
+            background-color: #444;
+            padding: 0.5rem;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav a:hover {
+            background-color: #555;
+        }
+        
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .news-block {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .news-title {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .news-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        .news-text {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Хэдер -->
+    <header class="header">
+        <h1>Наш сайт</h1>
+    </header>
+
+    <!-- Меню навигации -->
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="goods.html">Товары</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <!-- Новость 1 -->
+        <article class="news-block">
+            <h2 class="news-title">Запуск нового продукта</h2>
+            <div class="news-meta">
+                <time datetime="2024-01-15">15 мая 2024</time> | Автор: Георгий Глущенко
+            </div>
+            <p class="news-text">
+                Мы рады сообщить о запуске нашего нового продукта! После месяцев разработки и тестирования, 
+                мы представляем инновационное решение, которое изменит ваш подход к работе. 
+                Продукт уже доступен для предзаказа на нашем сайте.
+            </p>
+        </article>
+
+        <!-- Новость 2 -->
+        <article class="news-block">
+            <h2 class="news-title">Обновление сервиса</h2>
+            <div class="news-meta">
+                <time datetime="2025-01-10">"планируется" 10 января 2025</time> | Автор: Бочаров Данила 
+            </div>
+            <p class="news-text">
+                Вышло крупное обновление нашего сервиса. Мы добавили новые функции, 
+                улучшили производительность и исправили множество ошибок. 
+                Теперь работа с платформой стала еще удобнее и эффективнее.
+            </p>
+        </article>
+
+        <!-- Новость 3 -->
+        <article class="news-block">
+            <h2 class="news-title">Партнерство с ведущей компанией</h2>
+            <div class="news-meta">
+                <time datetime="2023-01-05">"планируется" 21 марта 2025</time> | Автор: Кирилл 
+            </div>
+            <p class="news-text">
+                Мы заключили стратегическое партнерство с одной из ведущих компаний в отрасли. 
+                Это сотрудничество позволит нам предложить нашим клиентам еще более качественные услуги 
+                и расширить спектр предлагаемых решений.
+            </p>
+        </article>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <p>&copy; 2025 Наш сайт. Все права защищены.</p>
+    </footer>
+</body>
+</html>
