@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Контакты</title>
+        <link rel="stylesheet" href="../style/styles.css">
+        <style>
+            <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav {
+            background-color: #444;
+            padding: 0.5rem;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav a:hover {
+            background-color: #555;
+        }
+        
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
+        .product-name {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="page-container">
+            <header class="header">
+                <h1>Контакты</h1>
+            </header>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                    <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <main class="content">
+                <section class="contacts-container">
+                    <h2 class="section-title">Наши контакты</h2>
+                    
+                    <article class="contact-info">
+                        <h3>Электронная почта</h3>
+                        <p>Адрес электронной почты: georgiy.06@bk.ru</p>
+                    </article>
+                    
+                    <article class="contact-info">
+                        <h3>Физический адрес</h3>
+                        <p>Адрес: живу в деревне</p>
+                    </article>
+
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <h3>Телефон</h3>
+                            <p>+7 (968) 859-40-51</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Время работы</h3>
+                            <p>Пн-Пт: 9:00-19:30</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Социальные сети</h3>
+                            <p>VK, Telegram, WhatsApp</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Измененная кнопка для открытия модального окна -->
+                    <button class="contact-button" onclick="contactModal.showModal()">Связаться с нами</button>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <p>© 2025 Все права защищены. Контактная информация</p>
+            </footer>
+
+            <!-- Модальное окно для формы обратной связи -->
+            <dialog id="contactModal">
+                <div class="modal-header">
+                    <h2>Форма обратной связи</h2>
+                </div>
+                
+                <div class="modal-content">
+                    <form id="feedbackForm" method="dialog">
+                        <div class="form-group">
+                            <label for="name">Имя <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Телефон <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Электронная почта <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Категория обращения <span class="required">*</span></label>
+                            <select id="category" name="category" required>
+                                <option value="">Выберите категорию</option>
+                                <option value="technical">Техническая поддержка</option>
+                                <option value="commercial">Коммерческое предложение</option>
+                                <option value="cooperation">Сотрудничество</option>
+                                <option value="complaint">Жалоба</option>
+                                <option value="suggestion">Предложение</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Текст обращения <span class="required">*</span></label>
+                            <textarea id="message" name="message" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                        </div>
+
+                        <div class="modal-actions">
+                            <!-- Кнопка отмены с автоматическим закрытием через form method="dialog" -->
+                            <button type="submit" class="btn btn-secondary">Отмена</button>
+                            <!-- Кнопка отправки с обработкой через JavaScript -->
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </dialog>
+
+            <script>
+                // Функция для отправки формы
+                function submitForm() {
+                    const form = document.getElementById('feedbackForm');
+                    const formData = new FormData(form);
+                    
+                    // Простая валидация
+                    if (!form.checkValidity()) {
+                        form.reportValidity();
+                        return;
+                    }
+
+                    // Собираем данные формы
+                    const data = {
+                        name: formData.get('name'),
+                        phone: formData.get('phone'),
+                        email: formData.get('email'),
+                        category: formData.get('category'),
+                        message: formData.get('message')
+                    };
+
+                    // В реальном приложении здесь был бы AJAX-запрос
+                    console.log('Данные формы:', data);
+                    
+                    // Показываем уведомление об успешной отправке
+                    alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+                    
+                    // Закрываем модальное окно
+                    contactModal.close();
+                    
+                    // Очищаем форму
+                    form.reset();
+                }
+
+                // Закрытие модального окна по клику на фон
+                document.getElementById('contactModal').addEventListener('click', function(event) {
+                    if (event.target === this) {
+                        this.close();
+                    }
+                });
+
+                // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
+                document.getElementById('feedbackForm').addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter' && event.target.type !== 'textarea') {
+                        event.preventDefault();
+                    }
+                });
+            </script>
+        </div>
+    </body>
+</html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Семестровая работа</title>
+        <link rel="stylesheet" href="style/styles.css">
+    </head>
+    <body>
+            <main class="content"> <!-- Было: <div class="content"> -->
+                <article class="profile-header"> <!-- Было: <div class="profile-header"> -->
+                    <h1 class="profile-title">Информация об авторе</h1>
+                    <img class="profile-photo" src="https://avatars.mds.yandex.net/get-yapic/56823/pbZrjMrXLTv31wPJ2uiWKLY14I-1/orig" alt="Фото автора">
+                    <h2 class="profile-name">Глущенко Георгий Павлович</h2>
+                    <p class="profile-group">ЭФБО-18-24</p>
+                </article>
+                
+                <section class="about-me"> <!-- Было: <div class="about-me"> -->
+                    <h2>Обо мне</h2> <!-- Добавили заголовок для семантики -->
+                    <p>Обо мне: Привет! Я создатель цифровых продуктов, которые помогают бизнесу расти в онлайн-пространстве.
+                     С 2022 года я разрабатываю качественные цифровые решения, которые уже помогли более 10 клиентам по всему миру. </p>
+                </section>
+                
+                <section class="skills-container"> <!-- Было: <div class="skills-container"> -->
+                    <h2>Мои навыки</h2> <!-- Добавили заголовок для семантики -->
+                    <div class="skills-grid"> <!-- Обертка для Grid -->
+                        <div class="skill-tag">Создание интуитивных интерфейсов и UX-дизайна для цифровых товаров.</div>
+                        <div class="skill-tag">Разработка систем автоматизации продаж и процессов для предпринимателей.</div>
+                        <div class="skill-tag">Стратегии продвижения и монетизации цифровых продуктов.</div>
+                        <div class="skill-tag">Гарантийное обслуживание и постоянное обновление продуктов.</div>
+                    </div>
+                </section>
+                
+                <section class="experience-section"> <!-- Было: <div class="experience-section"> -->
+                    <h2 class="section-title">Мой опыт работы</h2>
+                    <div class="experience-grid"> <!-- Обертка для Grid -->
+                        <article class="experience-card"> <!-- Было: <div class="experience-card"> -->
+                            <h3 class="experience-title">Опыт 1</h3>
+                            <p class="experience-desc">Получаю опыт в сфере разработки 4-ый год.</p>
+                        </article>
+                        <article class="experience-card">
+                            <h3 class="experience-title">Опыт 2</h3>
+                            <p class="experience-desc">Запустил продажи цифровых товаров с нуля.</p>
+                        </article>
+                        <article class="experience-card">
+                            <h3 class="experience-title">Опыт 3</h3>
+                            <p class="experience-desc">Хорошо развит навык командной работы.</p>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="footer"> <!-- Было: <div class="footer"> -->
+                <p>Футер</p> <!-- Добавили параграф для семантики -->
+            </footer>    
+        </div>
+    </body>
+</html>
