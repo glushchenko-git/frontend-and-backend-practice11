@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Моё портфолио</title>
+        <link rel="stylesheet" href="style/styles.css">
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav {
+            background-color: #444;
+            padding: 0.5rem;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav a:hover {
+            background-color: #555;
+        }
+        
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Стили для профиля */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-title {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 1rem auto;
+            border: 4px solid #333;
+        }
+        
+        .profile-name {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-group {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Стили для секций */
+        .about-me, .skills-container, .experience-section {
+            margin-bottom: 3rem;
+        }
+        
+        .about-me h2, .skills-container h2, .section-title {
+            color: #333;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .about-me p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Стили для навыков */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skill-tag {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #333;
+            color: #333;
+        }
+        
+        /* Стили для опыта */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .experience-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-top: 4px solid #333;
+        }
+        
+        .experience-title {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-desc {
+            color: #666;
+        }
+        
+        /* Стили для контактов */
+        .contacts-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .contact-button {
+            background-color: #333;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: block;
+            margin: 2rem auto;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-button:hover {
+            background-color: #555;
+        }
+        
+        /* Стили для модального окна */
+        dialog {
+            border: none;
+            border-radius: 8px;
+            padding: 0;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .modal-header {
+            background-color: #333;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+        }
+        
+        .modal-content {
+            padding: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: #333;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #555;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="page-container">
+            <header class="header">
+                <h1>Моё портфолио</h1>
+            </header>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                    <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <main class="main-content">
+                <!-- Профиль -->
+                <article class="profile-header">
+                    <h1 class="profile-title">Информация об авторе</h1>
+                    <img class="profile-photo" src="https://i.pinimg.com/736x/2b/f3/1e/2bf31ee14d4f1769b75c032e4378ce3e.jpg" alt="Фото автора">
+                    <h2 class="profile-name">Глущенко Георгий Павлович</h2>
+                    <p class="profile-group">ЭФБО-18-24</p>
+                </article>
+                
+                <!-- Обо мне -->
+                <section class="about-me">
+                    <h2>Обо мне</h2>
+                    <p>Привет! Я создатель цифровых продуктов, которые помогают бизнесу расти в онлайн-пространстве.
+                     С 2022 года я разрабатываю качественные цифровые решения, которые уже помогли более 10 клиентам по всему миру.</p>
+                </section>
+                
+                <!-- Навыки -->
+                <section class="skills-container">
+                    <h2>Мои навыки</h2>
+                    <div class="skills-grid">
+                        <div class="skill-tag">Создание интуитивных интерфейсов и UX-дизайна для цифровых товаров.</div>
+                        <div class="skill-tag">Разработка систем автоматизации продаж и процессов для предпринимателей.</div>
+                        <div class="skill-tag">Стратегии продвижения и монетизации цифровых продуктов.</div>
+                        <div class="skill-tag">Гарантийное обслуживание и постоянное обновление продуктов.</div>
+                    </div>
+                </section>
+                
+                <!-- Опыт работы -->
+                <section class="experience-section">
+                    <h2 class="section-title">Мой опыт работы</h2>
+                    <div class="experience-grid">
+                        <article class="experience-card">
+                            <h3 class="experience-title">Опыт 1</h3>
+                            <p class="experience-desc">Получаю опыт в сфере разработки 4-ый год.</p>
+                        </article>
+                        <article class="experience-card">
+                            <h3 class="experience-title">Опыт 2</h3>
+                            <p class="experience-desc">Запустил продажи цифровых товаров с нуля.</p>
+                        </article>
+                        <article class="experience-card">
+                            <h3 class="experience-title">Опыт 3</h3>
+                            <p class="experience-desc">Хорошо развит навык командной работы.</p>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <p>© 2025 Все права защищены. Глущенко Георгий Павлович</p>
+            </footer>
+
+            <!-- Модальное окно для формы обратной связи -->
+            <dialog id="contactModal">
+                <div class="modal-header">
+                    <h2>Форма обратной связи</h2>
+                </div>
+                
+                <div class="modal-content">
+                    <form id="feedbackForm" method="dialog">
+                        <div class="form-group">
+                            <label for="name">Имя <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Телефон <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Электронная почта <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Категория обращения <span class="required">*</span></label>
+                            <select id="category" name="category" required>
+                                <option value="">Выберите категорию</option>
+                                <option value="technical">Техническая поддержка</option>
+                                <option value="commercial">Коммерческое предложение</option>
+                                <option value="cooperation">Сотрудничество</option>
+                                <option value="complaint">Жалоба</option>
+                                <option value="suggestion">Предложение</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Текст обращения <span class="required">*</span></label>
+                            <textarea id="message" name="message" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                        </div>
+
+                        <div class="modal-actions">
+                            <button type="submit" class="btn btn-secondary">Отмена</button>
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </dialog>
+
+            <script>
+                // Функция для отправки формы
+                function submitForm() {
+                    const form = document.getElementById('feedbackForm');
+                    const formData = new FormData(form);
+                    
+                    // Простая валидация
+                    if (!form.checkValidity()) {
+                        form.reportValidity();
+                        return;
+                    }
+
+                    // Собираем данные формы
+                    const data = {
+                        name: formData.get('name'),
+                        phone: formData.get('phone'),
+                        email: formData.get('email'),
+                        category: formData.get('category'),
+                        message: formData.get('message')
+                    };
+
+                    // В реальном приложении здесь был бы AJAX-запрос
+                    console.log('Данные формы:', data);
+                    
+                    // Показываем уведомление об успешной отправке
+                    alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+                    
+                    // Закрываем модальное окно
+                    contactModal.close();
+                    
+                    // Очищаем форму
+                    form.reset();
+                }
+
+                // Закрытие модального окна по клику на фон
+                document.getElementById('contactModal').addEventListener('click', function(event) {
+                    if (event.target === this) {
+                        this.close();
+                    }
+                });
+
+                // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
+                document.getElementById('feedbackForm').addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter' && event.target.type !== 'textarea') {
+                        event.preventDefault();
+                    }
+                });
+            </script>
+        </div>
+    </body>
+</html>
